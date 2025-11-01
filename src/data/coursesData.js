@@ -10,6 +10,7 @@ import c8 from "../assets/images/c8.webp";
 const coursesData = [
   {
     id: 1,
+    slug: "master-certificate-drone-applications", // ✅ added
     title: "Master Certificate in Advanced Drone Applications and Technologies",
     duration: "45 Days",
     fee: "₹25,000",
@@ -36,6 +37,7 @@ const coursesData = [
   },
   {
     id: 2,
+    slug: "professional-certificate-uas-operations",
     title: "Professional Certificate in Unmanned Aerial Systems (UAS) Operations",
     duration: "45 Days",
     fee: "₹20,000",
@@ -63,6 +65,7 @@ const coursesData = [
   },
   {
     id: 3,
+    slug: "advanced-certificate-drone-technology",
     title: "Advanced Certificate in Drone Technology and Applications",
     duration: "45 Days",
     fee: "₹15,000",
@@ -89,6 +92,7 @@ const coursesData = [
   },
   {
     id: 4,
+    slug: "certificate-drone-engineering-design",
     title: "Certificate in Advanced Drone Engineering and Design",
     duration: "7 Days",
     fee: "₹10,000",
@@ -115,6 +119,7 @@ const coursesData = [
   },
   {
     id: 5,
+    slug: "professional-certificate-cad-catia-solidworks",
     title: "Professional Certificate in CAD Design with CATIA and SolidWorks",
     duration: "N/A",
     fee: "₹10,000",
@@ -138,6 +143,7 @@ const coursesData = [
   },
   {
     id: 6,
+    slug: "advanced-certificate-cfd-fea",
     title: "Advanced Certificate in Computational Fluid Dynamics (CFD) and Finite Element Analysis (FEA)",
     duration: "N/A",
     fee: "₹10,000",
@@ -161,6 +167,7 @@ const coursesData = [
   },
   {
     id: 7,
+    slug: "professional-diploma-drone-maintenance",
     title: "Professional Diploma in Drone Maintenance, Assembly, and Production",
     duration: "N/A",
     fee: "₹70,000",
@@ -186,6 +193,7 @@ const coursesData = [
   },
   {
     id: 8,
+    slug: "foundational-academic-program-junior",
     title: "Foundational Academic Program (Junior Level)",
     duration: "N/A",
     fee: "₹8,000",

@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Container, Row, Col } from "react-bootstrap";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "../styles/services.css";
@@ -37,6 +38,8 @@ import imgASA from "../assets/images/Asa.webp";
 import imgNylon from "../assets/images/nylon.webp";
 import imgPC from "../assets/images/pc.webp";
 import imgPVA from "../assets/images/Pva.webp";
+
+import whyservice from "../assets/images/service why section.webp"
 
 const Step = ({ icon, title, text, delay = 0 }) => (
   <div className="col-6 col-md-4 col-lg-2 d-flex align-items-stretch">
@@ -98,7 +101,19 @@ export default function Services3DPrint() {
   }, []);
 
   return (
+    
     <main className="services-3dp about-multicolor">
+
+      <section className="service-hero-section  breadcrumb-bg ">
+              <Container>
+                <div className="service-hero-content text-center">
+                  <h1 className="contact-title">Services</h1>
+                  <p>Delivering innovative solutions that empower your business and drive industry excellence.</p>
+                
+               
+                </div>
+              </Container>
+            </section>
       {/* Banner */}
       <section className="section-gradient-blue border-bottom">
         <div className="container">
@@ -129,7 +144,7 @@ export default function Services3DPrint() {
     <div className="row justify-content-center mb-4" data-aos="fade-right">
       <div className="col-xl-10">
         <h2 className="h4 mb-2">Steps for 3D Printing Services</h2>
-        <p className="text-muted mb-0">
+        <p className=" mb-0 text-white">
           Simple, transparent, and reliable — your idea goes from file to finished product in just six easy steps.
         </p>
       </div>
@@ -178,8 +193,8 @@ export default function Services3DPrint() {
         <div className="step-icon-flow">
           <img src={step.icon} alt={step.title} />
         </div>
-        <h6 className="mt-3 mb-1 text-center">{step.title}</h6>
-        <p className="small text-muted mb-0 text-center">{step.text}</p>
+        <h6 className="mt-3 mb-1 text-center ">{step.title}</h6>
+        <p className="small  mb-0 text-center text-white">{step.text}</p>
       </div>
       {/* Arrow right between 1-2, 2-3, 4-5, 5-6;
           Down arrow at end of first row (after 3) and at end of fourth step (after 6), not needed */}
@@ -201,9 +216,10 @@ export default function Services3DPrint() {
 </section>
 
 
-      {/* Technology */}
+     {/* Technology */}
       <section className="section-white">
         <div className="container">
+          <div className="containers">
           <div className="row align-items-center gy-4">
             <div className="col-lg-6" data-aos="fade-right">
               <h2 className="h4 mb-2">Our 3D Printing Technology</h2>
@@ -238,8 +254,10 @@ export default function Services3DPrint() {
             <PrinterCard img={pCentury} name="Elegoo Century Carbon" desc="Strong, durable, high‑accuracy prints with robust frames." type="FDM" delay={240} />
             <PrinterCard img={pSaturn4} name="Elegoo Saturn 4" desc="High‑resolution resin printing for smooth, detailed parts." type="Resin" delay={320} />
           </div>
+          </div>
         </div>
       </section>
+        
 
       {/* Materials with images */}
       <section className="section-blue">
@@ -267,9 +285,17 @@ export default function Services3DPrint() {
       </section>
 
       {/* Why Choose */}
-      <section className="section-sand">
-        <div className="container" data-aos="fade-up">
-          <div className="p-4 p-lg-5 bg-white rounded-3 shadow-sm">
+  <section className="section-dec">
+
+   <Container>
+       <Row className="align-items-center flex-row-reverse">
+       {/* RIGHT IMAGE */}
+          <Col lg={6} className="d-flex justify-content-center align-items-center mb-4 mb-lg-0">
+            <img src={whyservice} alt="why choose 3dpritring"  />
+          </Col>
+          {/* LEFT TEXT */}
+          <Col lg={6} className="about-text-col">
+            
             <h2 className="h4 mb-3">Why Choose ISAR 3D Print?</h2>
             <ul className="list-unstyled mb-0 why-list">
               <li>Fast Turnaround — from idea to prototype in days.</li>
@@ -281,12 +307,15 @@ export default function Services3DPrint() {
             <div className="mt-4">
               <a href="/contact" className="btn btn-primary btn-lg">Request a Quote</a>
             </div>
-          </div>
-        </div>
+            
+          </Col>
+          </Row>
+          </Container>
+         </section>
         <div>
           <Footer/>
         </div>
-      </section>
+     
     </main>
   );
 }

@@ -3,8 +3,9 @@ import React, { useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import "../styles/global.css";
+import "../styles/about.css";
 import Footer from "../components/Footer";
+import {Col} from "react-bootstrap";
 
 // Replace these with real assets or CMS URLs
 import heroImg from "../assets/images/3dprinting.webp"; 
@@ -15,6 +16,8 @@ import leadership1 from "../assets/images/PDK.webp";
 import leadership2 from "../assets/images/JV.webp"; 
 import leadership3 from "../assets/images/Gov.webp"; 
 import leadership4 from "../assets/images/london.webp"; 
+import { Container, Row } from "react-bootstrap";
+import about from "../assets/images/about-section square.jpeg";
 
 
 export default function AboutISARMultiColorAOS() {
@@ -48,14 +51,14 @@ export default function AboutISARMultiColorAOS() {
                 Advancing aerospace training, robotics research, and global collaborations to power the next generation of innovation.
               </p>
               <div className="d-flex flex-wrap gap-3">
-                {/*<a href="/about" className="btn btn-primary btn-lg">Learn More About ISAR</a>*/}
-                <a href="#contact" className="btn btn-outline-secondary btn-lg">Collaborate With Us</a>
+              
+                <a href="#contact" className="btn btn-primary btn-lg">Collaborate With Us</a>
               </div>
               
             </div>
             <div className="col-lg-5" data-aos="zoom-in">
               <div className="ratio ratio-4x3 rounded-3 overflow-hidden shadow-sm">
-                <img src={heroImg} alt="ISAR training and research" className="img-cover" />
+                <img src={heroImg} alt="ISAR training and research" className="img-covers" />
               </div>
             </div>
           </div>
@@ -63,20 +66,36 @@ export default function AboutISARMultiColorAOS() {
       </section>
 
       {/* About — soft gray */}
-      <section className="section-soft">
+
+
+<section className="section-white border-bottom">
         <div className="container">
-          <div className="row justify-content-center" data-aos="fade-up">
-            <div className="col-xl-10">
-              <div className="p-4 p-lg-5 bg-white rounded-3 shadow-sm">
-                <h2 className="h4 mb-3">About ISAR</h2>
-                <p className="mb-0">
-                  At ISAR, we are committed to advancing innovation through aerospace training, robotics research, and global collaborations. Our mission is to empower students, researchers, businesses, and institutions with knowledge, skills, and cutting-edge technology to thrive in the future of science and engineering. With a strong foundation in education and research, ISAR delivers excellence through UAV training programs, institutional partnerships, and industry engagements. We stand for integrity, innovation, and excellence, ensuring quality learning and impactful contributions in every initiative.
-                </p>
+          <div className="row align-items-center gy-4">
+            <div className="col-lg-7" data-aos="fade-right">
+              <h1 className="display-6 fw-semibold mb-3">
+                About ISAR
+              </h1>
+              <p className="lead text-muted mb-4">
+                At ISAR, we are committed to advancing innovation through aerospace training, 
+                  robotics research, and global collaborations. Our mission is to empower students, 
+                  researchers, businesses, and institutions with knowledge, skills, and cutting-edge technology 
+                  to thrive in the future of science and engineering. With a strong foundation in education and research,
+                   ISAR delivers excellence through UAV training programs, institutional
+                    partnerships, and industry engagements.
+                    We stand for integrity, innovation, and excellence, ensuring quality 
+                    learning and impactful contributions in every initiative.
+              </p>
+              
+            </div>
+            <div className="col-lg-5" data-aos="zoom-in">
+              <div className="ratio ratio-4x3 rounded-3 overflow-hidden shadow-sm">
+                <img src={about} alt="ISAR training and research" className="img-covers" />
               </div>
             </div>
           </div>
         </div>
       </section>
+
 
       {/* Mission & Vision — light blue */}
       <section className="section-blue">

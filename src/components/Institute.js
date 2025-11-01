@@ -38,13 +38,13 @@ export default function Institute() {
   }, []);
 
   return (
-    <section id="our-institute" className="institute-wrap section-white border-top">
+    <div id="our-institute" className="institute-wrap section-instiute border-top">
       <div className="container">
            <div className="text-center align-items-center flex-wrap flex-direction-column">
 
-   <div className="sub-title-round">Our Institute: Learn. Fly. Innovate.</div>
-      <h3 className="main-title-dark">Train with experts. Earn certifications.<br/> Launch a career in drones.</h3>
-      <p className="pararaph-small">
+        <div className="sub-title-round">Our Institute</div>
+        <h3 className="main-title-dark">Train with experts. Earn certifications.<br/> Launch a career in drones.</h3>
+        <p className="pararaph-small">
           At ISAR Institute, the next generation of drone professionals receive hands‑on training,<br/> globally recognized certifications, and placement support—spanning pilot licensing, aerial survey, and industry R&D projects.
         </p>
             
@@ -59,7 +59,7 @@ export default function Institute() {
               "3D mapping, site inspections, and progress monitoring for safer, data-driven decision making.",
              
             ]}
-            applyHref="courses/1"
+            applyHref="courses/master-certificate-in-advanced-drone-applications-and-technologies"
             brochureHref="/brochure/drone-pilot.pdf"
             delay={0}
           />
@@ -69,7 +69,7 @@ export default function Institute() {
             bullets={[
               "Advanced Flight Dynamics: UAV stability, control algorithms, and environmental effects.",
             ]}
-            applyHref="courses/2"
+            applyHref="courses/professional-certificate-in-unmanned-aerial-systems-uas-operations"
             brochureHref="/brochure/aerial-survey.pdf"
             delay={80}
           />
@@ -80,7 +80,7 @@ export default function Institute() {
               "Advanced Flight Dynamics: UAV stability, control algorithms, and environmental effects.",
               
             ]}
-            applyHref="courses/3"
+            applyHref="courses/advanced-certificate-in-drone-technology-and-applications"
             brochureHref="/brochure/research-labs.pdf"
             delay={160}
           />
@@ -94,6 +94,6 @@ export default function Institute() {
         </div>
       </div>
       </div>
-    </section>
+    </div>
   );
 }

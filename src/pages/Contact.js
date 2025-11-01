@@ -14,6 +14,7 @@ const offices = [
   }
 ];
 
+
 export default function ContactUs() {
   return (
     <main>
@@ -22,7 +23,7 @@ export default function ContactUs() {
         <Container>
           <div className="contact-hero-content text-center">
             <h1 className="contact-title">Contact Us</h1>
-            <div className="contact-breadcrumb">ISAR &gt; Contact Us</div>
+            <p className="para">Get in touch with us today — we're here to listen, assist, and collaborate to make your vision a reality.</p>
           </div>
         </Container>
       </section>

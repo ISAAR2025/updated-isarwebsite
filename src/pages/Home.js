@@ -13,9 +13,9 @@ import Footer from "../components/Footer";
 import Institute from "../components/Institute";
 import PrintingIndustrialSection from "../components/PrintingIndustrialSection";
 import GalleryMedia from "../components/Gallery";
-import CaseStudiesSection from "../components/CaseStudies";
+//import CaseStudiesSection from "../components/CaseStudies";
 import ContactRequest from "../components/ContactForm";
-import NewsletterStrip from "../components/Newsletter";
+import Stats from "../components/Stats"
 
 // ✅ Motion Variant (fade + slide up)
 const fadeInUp = {
@@ -40,6 +40,8 @@ function Home() {
         <Hero />
       </motion.div>
 
+      
+
       <motion.div
         variants={fadeInUp}
         initial="hidden"
@@ -49,6 +51,14 @@ function Home() {
         <AboutShort />
       </motion.div>
 
+
+<motion.div
+        variants={fadeInUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}>
+        <Stats />
+      </motion.div>
       <motion.div
         variants={fadeInUp}
         initial="hidden"
@@ -82,7 +92,7 @@ function Home() {
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
       >
-        <CaseStudiesSection />
+       
       </motion.div>
 
       <motion.div
@@ -145,10 +155,10 @@ function Home() {
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
       >
-        <NewsletterStrip />
+        
       </motion.div>
 
-      {/* Footer (no animation, usually fixed/instant) */}
+      
       <Footer />
     </div>
   );

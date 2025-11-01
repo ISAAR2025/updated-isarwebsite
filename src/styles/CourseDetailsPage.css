@@ -1,4 +1,4 @@
-/* ===== BASE PAGE ===== */
+/* ===== BASE ===== */
 .course-details-wrapper {
   font-family: "Poppins", "Segoe UI", sans-serif;
   background: #f8fcff;
@@ -6,55 +6,44 @@
   overflow-x: hidden;
 }
 
-/* ===== HERO SECTION ===== */
+/* ===== HERO ===== */
 .course-hero {
   position: relative;
   width: 100%;
-  height: 280px;
-  background-color: #266ab1; /* solid blue */
+  height: 260px;
+  background: linear-gradient(135deg, #266ab1, #1b4f88);
   display: flex;
   align-items: flex-end;
-  justify-content: center;
 }
 
 .hero-overlay {
   width: 100%;
   padding: 60px max(6vw, 32px);
-  color: #ffffff;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+  color: #fff;
 }
 
 .hero-title {
-  font-size: 2.4rem;
+  font-size: 2.3rem;
   font-weight: 700;
-  color: #ffffff;
-  margin-top: 12px;
+  margin-top: 10px;
 }
 
-/* ===== BREADCRUMB IN HERO ===== */
 .breadcrumb {
   display: flex;
   align-items: center;
   gap: 8px;
   font-size: 0.95rem;
   color: #d2e8f8;
-  flex-wrap: wrap;
 }
-
 .breadcrumb span {
   cursor: pointer;
-  color: #ffffff;
   opacity: 0.9;
-  transition: opacity 0.25s ease;
+  transition: opacity 0.2s;
 }
-
 .breadcrumb span:hover {
   opacity: 1;
 }
-
-.breadcrumb span.active-page {
+.breadcrumb .active-page {
   color: #fff;
   font-weight: 600;
 }
@@ -62,7 +51,7 @@
 /* ===== MAIN LAYOUT ===== */
 .course-layout {
   display: grid;
-  grid-template-columns: 340px 1fr;
+  grid-template-columns: 320px 1fr;
   gap: 36px;
   padding: 60px max(6vw, 32px);
   align-items: start;
@@ -166,17 +155,14 @@
   line-height: 1.8;
   color: #374151;
   font-size: 1rem;
+  background: #fdfefe;
+  padding: 24px;
+  border-radius: 10px;
+  border: 1px solid #e3eef8;
 }
 
-.course-description-container h3 {
-  color: #0b4265;
-  margin-top: 24px;
-  margin-bottom: 10px;
-  font-size: 1.3rem;
-}
-
-/* ===== ENROLL BUTTON ===== */
-.enroll-btn-bottom-container {
+/* ===== ENROLL SECTION ===== */
+.enroll-section {
   margin-top: 50px;
   text-align: center;
 }
@@ -197,7 +183,72 @@
 .enroll-btn-bottom:hover {
   background: linear-gradient(135deg, #1d5a92, #16497b);
   transform: translateY(-2px);
-  box-shadow: 0 10px 24px rgba(38, 118, 176, 0.35);
+}
+
+/* ===== ENROLL FORM ===== */
+.enroll-form-container {
+  background: #fff;
+  border-radius: 16px;
+
+  position: relative;
+  max-width: 600px;
+  margin: 40px auto 0;
+  text-align: left;
+}
+.close-form-btn {
+  position: absolute;
+  top: 12px;
+  right: 18px;
+  background: transparent;
+  border: none;
+  font-size: 1.4rem;
+  color: #1b4f88;
+  cursor: pointer;
+}
+.enroll-form-container h2 {
+  font-size: 1.5rem;
+  color: #0b4265;
+  margin-bottom: 24px;
+  text-align: center;
+}
+.enroll-form .form-group {
+  margin-bottom: 18px;
+}
+.enroll-form label {
+  display: block;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 6px;
+}
+.enroll-form input,
+.enroll-form textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #cfd9e3;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  transition: border-color 0.25s;
+}
+.enroll-form input:focus,
+.enroll-form textarea:focus {
+  border-color: #266ab1;
+  outline: none;
+}
+.submit-btn {
+  width: 100%;
+  background: linear-gradient(135deg, #266ab1, #1b4f88);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 0;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.submit-btn:hover {
+  background: linear-gradient(135deg, #1d5a92, #16497b);
+  transform: translateY(-2px);
 }
 
 /* ===== RESPONSIVE ===== */
@@ -216,32 +267,20 @@
     order: 1;
     padding: 32px 28px;
   }
-
-  .hero-title {
-    font-size: 1.9rem;
-  }
 }
 
 @media (max-width: 576px) {
-  .hero-overlay {
-    padding: 40px 20px;
+  .hero-title {
+    font-size: 1.6rem;
   }
-
-  .course-main {
-    padding: 24px 20px;
-  }
-
   .meta-card {
     grid-template-columns: 1fr;
   }
-
   .enroll-btn-bottom {
     width: 100%;
     padding: 14px 0;
   }
-
-  .hero-title {
-    font-size: 1.6rem;
+  .enroll-form-container {
+    padding: 28px 20px;
   }
-  
 }

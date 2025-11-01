@@ -7,7 +7,7 @@
   --tx-primary-hover:#1d4ed8;
 
   --t-soft:#f6f7f9;
-  --t-sand:#fbf8f3;
+  --t-sand:#fffffffa;
   --t-blue:#eef5ff;
   --g-blue-1:#e9f3ff;
   --g-blue-2:#f0f9ff;
@@ -100,34 +100,45 @@ p, li{ line-height:1.7; }
   grid-template-columns: repeat(5, 1fr);
   gap: 1.5rem;
   margin-top: 0.5rem;
+  justify-content: center;      /* Ensure grid itself is centered if less than 5 cols */
 }
 
-.five-col {
-  display: flex;
-}
 
 @media (max-width: 1199.98px) {
   .five-grid {
     grid-template-columns: repeat(3, 1fr);
+    justify-content: center;      /* Center on 3-col layouts */
   }
 }
 @media (max-width: 767.98px) {
   .five-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
+    justify-content: center;     /* Center on 2-col layouts */
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 @media (max-width: 575.98px) {
   .five-grid {
     grid-template-columns: 1fr;
     gap: 0.5rem;
+    justify-content: center;     /* Center on 1-col layouts */
+    margin-left: auto;
+    margin-right: auto;
   }
 }
+
+
 .section-steps {
-  background: linear-gradient(90deg, #1c1e34ad 0%, #d3e7e3c8 100%);
+  background:#25427e;
   padding: 72px 0 76px 0;
   border-radius: 16px;
   margin-bottom: 40px;
+  color:#e5e7eb
+}
+.text-white{
+  color:#d3d8df
 }
 
 .steps-flow-wrap {
@@ -160,8 +171,8 @@ p, li{ line-height:1.7; }
   box-shadow: 0 2px 8px rgba(80,144,220,0.07);
 }
 .step-icon-flow img {
-  max-width: 38px;
-  max-height: 38px;
+  max-width: 90px;
+  max-height: 60px;
   margin: auto;
   display: block;
 }
@@ -219,7 +230,78 @@ p, li{ line-height:1.7; }
   .step-arrow { font-size: 1.4rem; }
 }
 .section-blue {
-  background: linear-gradient(90deg, #8289e7ad 10%, #a1f6e6c8 100%);
+  background: #729cdbad;
   padding: 64px 0;
 }
+@media (max-width: 575.98px) {
+  .why-list,
+  .p-4, .p-lg-5 {
+    padding: 1rem !important;     /* Reduce padding for card/section */
+  }
+  .btn,
+  .btn-lg {
+    width: 100%;                  /* Make button full width */
+    max-width: 100%;              /* Prevent overflow */
+    padding: 0.55rem 1rem;        /* Compact padding */
+    font-size: 0.97rem;
+    box-sizing: border-box;       /* Prevent extra overflow */
+    margin-left: 0;
+    margin-right: 0;
+    display: block;
+  }
+  .bg-white.rounded-3.shadow-sm {
+    margin: 0 !important;         
+  }
+}
 
+.section-dec{
+background-color: #f0f1f2;
+    border-radius: 12px;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    margin-bottom: 40px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    background-color: #F8F8FA;
+    background-image: url(https://gerow-wp.themedox.com/wp-content/uploads/2023/08/pricing_shape.png);
+    background-position: top right;
+    background-repeat: no-repeat;
+    background-size: auto;
+} 
+
+.service-hero-section.breadcrumb-bg {
+  background-image: url('../assets/images/services\ banner.webp'); /* Path to your image in public/images */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 80px 0; /* Adjust padding for spacing */
+  color: white; /* Optional text color for contrast */
+}
+
+.breadcrumb-bg::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #0c183dbe;
+    opacity: .85;
+    z-index: -1;
+}
+.contact-title {
+  color: #fff;
+  font-size: 2.8rem;
+  font-weight: 700;
+  letter-spacing: .02em;
+  margin-bottom: 10px;
+}
+.contact-breadcrumb {
+  color: #213e6f;
+  font-size: 1.1rem;
+  margin-top: 14px;
+}
+.containers{
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}

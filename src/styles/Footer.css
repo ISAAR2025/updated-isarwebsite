@@ -1,6 +1,6 @@
 /* Footer Base */
 .footer {
-  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  background: #052343;;
   color: #ffffff;
   margin-top: auto;
   padding: 60px 0 0;
@@ -27,9 +27,8 @@
 .logo-container {
   display: inline-block; /* shrink container to logo size */
   margin-bottom: 15px;   /* space between logo and description */
-  border-radius: 12px;   /* rounded corners */
-  background-color: rgba(255, 255, 255, 0.7); /* semi-transparent background */
-  padding: 10px;         /* space around logo */
+  
+  padding: 0px;         /* space around logo */
 }
 
 .footer-logo {
@@ -41,6 +40,23 @@
   border-radius: 8px;
   transition: all 0.3s ease;
 }
+.logo-container {
+  display: flex;
+  align-items: center; /* vertically center logo & text */
+  gap: 12px; /* spacing between logo and text */
+}
+
+
+
+.company-name {
+  font-weight: 600;
+  color: #ffffff;
+  font-size: 1.2rem;
+  margin: 0;
+  line-height: 1.2;
+  text-align: left;
+  
+}
 
 .company-description {
   color: #cccccc;
@@ -48,6 +64,7 @@
   margin-bottom: 25px;
   font-size: 0.95rem;
   word-wrap: break-word;
+  text-align: left;
 }
 
 
@@ -171,55 +188,70 @@
 
 /* ========== CONTACT INFO ========== */
 
-.contact-row h3{
-  color: #fff;
-}
-
-
-
-.contact-item {
+.contact-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
   justify-content: flex-start !important;
+  text-align: left !important; /* force left text alignment */
+}
+.contact-row h3 {
+  color: #fff;
+  margin-bottom: 20px; /* ✅ extra gap between title and contact items */
+  font-size: x-large;
 }
 
-.contact-item-wrapper {
-  margin-bottom: 15px;
-}
-
+/* Applies to phone, email, and address blocks */
 .contact-item {
   display: flex;
-  align-items: center;
-  gap: 12px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 10px;
+  margin-bottom: 18px;
   color: #cccccc;
-  font-size: .95rem;
-  justify-content: left;
-   margin-bottom: 18px;
+  font-size: 0.95rem;
+  width: 100%; /* makes each item span full width on mobile */
+  text-align: left;
 }
-
-
 
 .contact-icon {
   color: #007bff;
   font-size: 1.1rem;
+  margin-top: 3px;
   flex-shrink: 0;
 }
 
-.contact-item a {
+.contact-item a,
+.address span {
   color: #cccccc;
   text-decoration: none;
-  transition: color .3s ease;
+  line-height: 1.5;
   word-wrap: break-word;
+  text-align: left;
 }
 
-.contact-item a:hover {
+/* Social icons section */
+.footer-social {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start !important; /* ✅ keeps left-aligned on mobile */
+  gap: 15px;
+  width: 100%;
+  text-align: left;
+  margin-top: 10px;
+}
+
+.footer-social a {
+  color: #cccccc;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+.footer-social a:hover {
   color: #007bff;
 }
 
-.address span {
-  color: #cccccc;
-  line-height: 1.4;
-  word-wrap: break-word;
-  text-align: center;
-}
+
 
 /* ========== SEO KEYWORDS ========== */
 .seo-keywords {
@@ -309,8 +341,8 @@
 
 @media (max-width: 575.98px) {
   .footer-logo {
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
   }
   
   .brand-name {
@@ -324,8 +356,8 @@
   }
   
   .contact-item {
-    justify-content: center;
-    text-align: center;
+    justify-content: flex-start;
+    text-align: left;
   }
   
   .address span {

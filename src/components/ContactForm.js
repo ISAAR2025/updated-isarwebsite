@@ -1,78 +1,202 @@
-import React from "react";
-import { Container, Row, Col, Form, Button } from "react-bootstrap";
+import React, { useState } from "react";
+import { Form, Button, Col } from "react-bootstrap";
+import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 import "../styles/ContactForm.css";
 
-export default function ContactRequest() {
+export default function ContactForm() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    enquiryFor: "Institute",
+    message: "",
+  });
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setSubmitting(true);
+    setError("");
+    setSuccess("");
+
+    try {
+      const response = await fetch(
+       `${process.env.REACT_APP_API_BASE_URL}/contact`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        }
+      );
+
+      if (!response.ok) {
+        const errData = await response.json();
+        throw new Error(errData.error || "Failed to send request");
+      }
+
+      setSuccess("Message sent successfully! We'll get back to you soon.");
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        enquiryFor: "Institute",
+        message: "",
+      });
+    } catch (err) {
+      setError(err.message || "Failed to send message. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
   return (
-    <section className="contact-request section-pastel" id="contact">
-      <Container>
-        <Row className="g-4">
-          {/* Form column */}
-          <Col lg={7}>
-            <div className="glass-lite p-4 p-lg-5 h-100">
-              <h2 className="h4 mb-3">Contact / Request Form</h2>
-              <Form className="row g-3">
+    <section className="contact-section" id="contact">
+      <div className="contact-container">
+        <div className="contact-grid">
+          {/* Left side - Contact Form */}
+          <div className="form-content">
+            <p className="section-label">CONTACT ME</p>
+            <h2 className="form-title">Get in touch</h2>
+            <div className="title-underline"></div>
+
+            <Form className="contact-form" onSubmit={handleSubmit}>
+              <div className="row g-3">
                 <Col md={6}>
-                  <Form.Label className="small text-muted">Name</Form.Label>
-                  <Form.Control type="text" placeholder="Enter name" />
+                  <Form.Label>Name *</Form.Label>
+                  <Form.Control
+                    type="text"
+                    placeholder="Your name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                  />
                 </Col>
                 <Col md={6}>
-                  <Form.Label className="small text-muted">Email</Form.Label>
-                  <Form.Control type="email" placeholder="Enter email" />
+                  <Form.Label>Phone *</Form.Label>
+                  <Form.Control
+                    type="tel"
+                    placeholder="Phone"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    required
+                  />
                 </Col>
-                <Col md={6}>
-                  <Form.Label className="small text-muted">Phone</Form.Label>
-                  <Form.Control type="tel" placeholder="Enter phone number" />
+                <Col xs={12}>
+                  <Form.Label>E-mail *</Form.Label>
+                  <Form.Control
+                    type="email"
+                    placeholder="E-mail"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                  />
                 </Col>
-                <Col md={6}>
-                  <Form.Label className="small text-muted">Enquiry For</Form.Label>
-                  <Form.Select defaultValue="Institute">
-                    <option>Institute</option>
-                    <option>Services</option>
-                    <option>Partnership</option>
+                <Col xs={12}>
+                  <Form.Label>Enquiry For *</Form.Label>
+                  <Form.Select
+                    name="enquiryFor"
+                    value={formData.enquiryFor}
+                    onChange={handleChange}
+                    required
+                  >
+                    <option value="Institute">Institute</option>
+                    <option value="Services">Services</option>
+                    <option value="Partnership">Partnership</option>
                   </Form.Select>
                 </Col>
                 <Col xs={12}>
-                  <Form.Label className="small text-muted">Message</Form.Label>
-                  <Form.Control as="textarea" rows={4} placeholder="Briefly describe your request" />
+                  <Form.Label>Your Message *</Form.Label>
+                  <Form.Control
+                    as="textarea"
+                    rows={4}
+                    placeholder="Your Message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    required
+                  />
                 </Col>
-                <Col xs={12} className="d-flex flex-wrap gap-2">
-                  <Button variant="primary">Send Enquiry</Button>
-                  <a href="tel:+91XXXXXXXXXX" className="btn btn-outline-secondary">Call Now</a>
-                </Col>
-              </Form>
-            </div>
-          </Col>
 
-          {/* Map + address column */}
-          <Col lg={5}>
-            <div className="card border-0 shadow-sm h-100">
-              <div className="map-wrap">
-                {/* Replace src with your Google Maps embed URL */}
-                <iframe
-                  title="ISAR Location"
-                  className="map-embed"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3914.7647785791364!2d78.2306213!3d11.1308884!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3babcb9ccc5f2cd5%3A0x2f9085eec7b057b5!2sINDIAN%20SCIENTIFIC%20AEROSPACE%20AND%20ROBOTICS!5e0!3m2!1sen!2sin!4v1748328076032!5m2!1sen!2sin"
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                />
+                {error && (
+                  <Col xs={12}>
+                    <div className="alert alert-danger">{error}</div>
+                  </Col>
+                )}
+                {success && (
+                  <Col xs={12}>
+                    <div className="alert alert-success">{success}</div>
+                  </Col>
+                )}
+
+                <Col xs={12}>
+                  <Button
+                    className="btn-submit"
+                    type="submit"
+                    disabled={submitting}
+                  >
+                    {submitting ? "Sending..." : "Send"}
+                  </Button>
+                </Col>
               </div>
-              <div className="card-body">
-                <h5 className="card-title mb-2">Address & Contact</h5>
-                <p className="mb-2 small text-muted">
-                  339/2 at Kurunji Nagar Valayapatti, Mohanur,
-                  Namakkal District, Tamil Nadu 637020
-                </p>
-                <ul className="list-unstyled small text-muted mb-0">
-                  <li className="mb-1">• Email: admin@isaar.in</li>
-                  <li className="mb-1">• Phone: +91 6374720788</li>
-                  <li className="mb-0">• Hours: Mon–Sat, 10:00–18:00</li>
-                </ul>
+            </Form>
+          </div>
+
+          {/* Right side - Contact Info */}
+          <div className="contact-info-content">
+            <p className="section-label">CONTACTS</p>
+            <h2 className="info-title">Contact info</h2>
+            <div className="title-underline"></div>
+
+            <div className="contact-info-items">
+              {/* Phone */}
+              <div className="contact-info-item">
+                <div className="contact-icons">
+                  <FaPhoneAlt />
+                </div>
+                <div className="contact-details">
+                  <h4>Phone</h4>
+                  <p>+91 6374720788</p>
+                </div>
+              </div>
+
+              {/* Email */}
+              <div className="contact-info-item">
+                <div className="contact-icons">
+                  <FaEnvelope />
+                </div>
+                <div className="contact-details">
+                  <h4>Email</h4>
+                  <p>admin@isaar.in</p>
+                </div>
+              </div>
+
+              {/* Address */}
+              <div className="contact-info-item">
+                <div className="contact-icons">
+                  <FaMapMarkerAlt />
+                </div>
+                <div className="contact-details">
+                  <h4>Address</h4>
+                  <p>
+                    339/2 at Kurunji Nagar Valayapatti, Mohanur,
+                    <br />
+                    Namakkal District, Tamil Nadu 637020
+                  </p>
+                </div>
               </div>
             </div>
-          </Col>
-        </Row>
-      </Container>
+          </div>
+        </div>
+      </div>
     </section>
   );
 }

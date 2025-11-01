@@ -47,7 +47,7 @@ const faqs = [
 
 export default function FAQSection() {
   return (
-    <section className="faq-section section-pastel" id="faq">
+    <div className="faq-section section-pastel" id="faq">
       <Container>
         <Row className="justify-content-center">
           <Col xl={10}>
@@ -78,15 +78,10 @@ export default function FAQSection() {
               </Accordion>
             </div>
 
-            <div className="d-flex flex-wrap gap-2 mt-4 justify-content-center">
-              <a href="/apply" className="btn btn-primary btn-lg">Apply Now</a>
-              <a href="/brochure" className="btn btn-outline-secondary btn-lg">Request Brochure</a>
-              <a href="/partner" className="btn btn-outline-secondary btn-lg">Partner With ISAR</a>
-              <a href="/contact" className="btn btn-outline-secondary btn-lg">Contact Support</a>
-            </div>
+           
           </Col>
         </Row>
       </Container>
-    </section>
+    </div>
   );
 }

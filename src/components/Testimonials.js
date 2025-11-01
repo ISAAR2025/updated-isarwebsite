@@ -61,7 +61,7 @@ export default function TestimonialsPage() {
       </section>
 
       {/* Primary highlights (3-up) */}
-      <section>
+      <div>
         <Container>
           <Row className="g-4">
             {testimonialsPrimary.map((t, i) => (
@@ -71,7 +71,7 @@ export default function TestimonialsPage() {
             ))}
           </Row>
         </Container>
-      </section>
+      </div>
 
      
     </div>

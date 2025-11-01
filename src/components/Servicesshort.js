@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import {  Row, Col } from "react-bootstrap";
 import "../styles/ServicesShort.css";
 
 import iconTraining from "../assets/icons/training.webp";
@@ -90,14 +90,17 @@ function ServiceTile({ title, text, icon }) {
 
 export default function ServicesShort() {
   return (
-    <section className="services-short section-pastel" id="our-services">
-      <Container>
-      
-        <div className="text-center align-items-center flex-wrap flex-direction-column">
+    <div id="our-institute" className="services-wrap section-white border-top">
+      <div className="container"></div>
+           <div className="text-center align-items-center flex-wrap flex-direction-column">
 
-                          <div className="sub-title-round">Our Services</div>
-                          </div>
-            
+            <div className="sub-title-round">Our Services</div>
+             <h3 className="main-title-dark">Empowering Innovation in Science & Aerospace</h3>
+              <p className="pararaph-small">
+              ISAR delivers expert drone training, aerial research, and advanced 3D printing solutions<br/> for science and industry. Our innovative services empower clients to achieve precision, safety, and efficiency in every project.
+             </p>
+        
+            <div className="container">
         <Row className="g-4">
           {SERVICES.map((s, idx) => (
             <Col key={s.key} md={6} lg={3}>
@@ -107,13 +110,13 @@ export default function ServicesShort() {
             </Col>
           ))}
         </Row>
+        </div>
         <div className="mt-4 text-center">
            <a href="/services" className="btn btn-primary btn-lg">
             See Full Services
           </a>
         </div>
-        
-      </Container>
-    </section>
+        </div>
+    </div>
   );
 }

@@ -97,17 +97,28 @@
 }
 
 /* ========== BUTTON ENHANCEMENTS ========== */
-.btn-primary,
-.btn-outline-primary {
-  border-radius: 25px;
-  padding: 8px 20px;
+.tab-btn {
+  background-color: #fff;
+  border: 2px solid #007bff; /* Bootstrap blue */
+  color: #007bff;
+  border-radius: 30px;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  cursor: pointer;
   transition: all 0.3s ease;
+  outline: none;
 }
 
-.btn-primary:hover,
-.btn-outline-primary:hover {
-  transform: translateY(-2px);
+.tab-btn:hover {
+  background-color: #007bff;
+  color: #fff;
 }
+
+.tab-btn.active {
+  background-color: #007bff;
+  color: #fff;
+}
+
 
 /* ========== FIXED MODAL NAV BUTTONS ========== */
 .modal button[aria-label="Previous image"],
@@ -169,4 +180,64 @@
   .modal button[aria-label="Close"]:hover {
     color: #aaa !important;
   }
+}
+@media (max-width: 575.98px) {
+  .btn,
+  .btn-lg {
+    width: 70%;                
+    min-width: 140px;          
+    max-width: 270px;          
+    display: block;
+    margin-left: auto;
+    margin-right: auto;        
+    padding: 0.55rem 1rem;
+    font-size: 0.97rem;
+    box-sizing: border-box;
+  }
+}
+@media (max-width: 768px) 
+{
+  .btn-lg {
+    width: 70%;                
+    min-width: 140px;          
+    max-width: 270px;          
+    display: block;
+    margin-left: auto;
+    margin-right: auto;        
+    padding: 0.55rem 1rem;
+    font-size: 0.97rem;
+    box-sizing: border-box;
+  }
+}
+.gallery-hero-section.breadcrumb-bg {
+  background-image: url('../assets/images/photo\ gallery.webp'); /* Path to your image in public/images */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 80px 0; /* Adjust padding for spacing */
+  color: white; /* Optional text color for contrast */
+}
+
+.breadcrumb-bg::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #0c183dbe;
+    opacity: .85;
+    z-index: -1;
+}
+.contact-title {
+  color: #fff;
+  font-size: 2.8rem;
+  font-weight: 700;
+  letter-spacing: .02em;
+  margin-bottom: 10px;
+}
+.contact-breadcrumb {
+  color: #213e6f;
+  font-size: 1.1rem;
+  margin-top: 14px;
 }

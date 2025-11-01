@@ -4,7 +4,7 @@
 import React from "react";
 import "./LoadingScreen.css";
 
-import logo from "../assets/images/logo1.webp.png"; // adjust the path
+import logo from "../assets/images/logo1.webp"; // adjust the path
 
 const EclipseLoader = ({ text = "Loading, please wait..." }) => (
   <div className="loader-center">

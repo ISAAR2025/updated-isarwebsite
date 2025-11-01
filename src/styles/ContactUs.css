@@ -6,7 +6,7 @@
      
     background-size: cover;
     background-position: center;
-    padding: 120px 0 130px;
+    padding: 80px 0 80px;
     position: relative;
     z-index: 1;
 }
@@ -88,7 +88,9 @@
   display: block;
   min-height: 340px;
 }
-
+.para{
+  color: #f6f8fa;
+}
 /* Responsive tweaks */
 @media (max-width: 991.98px) {
   .contact-hero-section { padding: 40px 0 30px 0; }

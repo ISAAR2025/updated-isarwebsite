@@ -5,11 +5,23 @@ import "../styles/GalleryShort.css"; // Rename your CSS file accordingly
 import g1 from "../assets/images/IMG_0033.webp";
 import g2 from "../assets/images/g12.webp";
 import g3 from "../assets/images/g11.webp";
+import g4 from "../assets/images/g11.webp";
+import g5 from "../assets/images/g11.webp";
+import g6 from "../assets/images/g11.webp";
+import g7 from "../assets/images/g11.webp";
+import g8 from "../assets/images/g11.webp";
+
 
 const mediaItems = [
   { type: "image", src: g1, alt: "Training session 1" },
   { type: "image", src: g2, alt: "Flight practice" },
-  { type: "image", src: g3, alt: "Lab workspace" }
+  { type: "image", src: g3, alt: "Lab workspace" },
+  { type: "image", src: g4, alt: "Training session 1" },
+  { type: "image", src: g5, alt: "Flight practice" },
+  { type: "image", src: g6, alt: "Lab workspace" },
+  { type: "image", src: g7, alt: "Training session 1" },
+  { type: "image", src: g8, alt: "Flight practice" },
+  
 ];
 
 function MasonryItem({ item }) {
@@ -24,7 +36,7 @@ function MasonryItem({ item }) {
 
 export default function GalleryMedia() {
   return (
-    <section className="gallerymedia-media section-pastel" id="gallery">
+    <div className="gallerymedia-media section-pastel" id="gallery">
       <Container>
      <div className="text-center align-items-center flex-wrap flex-direction-column">
 
@@ -44,14 +56,12 @@ export default function GalleryMedia() {
         </div>
 
         <div className="gallerymedia-mt-4 d-flex flex-wrap gap-2 justify-content-center">
-          <a href="/gallery" className="btn btn-outline-secondary btn-lg">
+          <a href="/gallery" className="btn btn-primary btn-lg">
             View Full Gallery
           </a>
-          <a href="/contact#share" className="btn btn-primary btn-lg">
-            Share Your Story
-          </a>
+          
         </div>
       </Container>
-    </section>
+    </div>
   );
 }

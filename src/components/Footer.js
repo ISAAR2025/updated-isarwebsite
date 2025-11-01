@@ -2,8 +2,7 @@ import '../styles/Footer.css';
 import { useNavigate } from 'react-router-dom';
 import { Container, Row, Col } from 'react-bootstrap';
 import { FaFacebook, FaInstagram, FaLinkedin, FaPhone, FaEnvelope, FaMapMarkerAlt} from 'react-icons/fa';
-import Logo from "../logo1.webp";
-import footerBg from '../assets/images/footer-bg.webp';
+
 
 
 const Footer = () => {
@@ -13,11 +12,11 @@ const Footer = () => {
     navigate(path);
   };
   const footerStyle = {
-  backgroundImage: `url(${footerBg})`,
+  //backgroundImage: `url(${footerBg})`,
   backgroundRepeat: 'no-repeat',
   backgroundPosition: 'center center',
   backgroundSize: 'cover',
-  color: '#ffffff',
+  color: '#052343',
   marginTop: 'auto',
   padding: '60px 0 0',
 };
@@ -31,18 +30,19 @@ const Footer = () => {
         <Row className="footer-main-row">
           {/* Column 1: Company Info & Social */}
           <Col xs={12} md={6} lg={4} className="footer-section company-info">
-            <div className="company-logo">
-              <div className="logo-container">
-                <img src={Logo} alt="ISAR Logo" className="footer-logo" />
-              </div>
-            </div>
-            <p className="company-description">
-              At ISAR, we're dedicated to delivering innovative technology solutions 
-              tailored to meet the unique needs of aerospace and robotics education. 
-              Building the future through advanced UAV training and research.
-            </p>
-          
-          </Col>
+  <div className="company-logo">
+    <div className="logo-container">
+      
+      <p className="company-name">Indian Scientific Aerospace and Robotics</p>
+    </div>
+  </div>
+
+  <p className="company-description">
+    At ISAR, we're dedicated to delivering innovative technology solutions 
+    tailored to meet the unique needs of aerospace and robotics education. 
+    Building the future through advanced UAV training and research.
+  </p>
+</Col>
 
           {/* Column 2: Quick Links */}
           <Col xs={12} md={6} lg={3} className="footer-section quick-links">
@@ -115,7 +115,7 @@ const Footer = () => {
     <a href="mailto:admin@isaar.in">admin@isaar.in</a>
   </Col>
 
-  <Col xs={12} md={3} className="contact-item d-flex align-items-center gap-2 address">
+  <Col xs={12} md={3} className="contact-item d-flex align-items-left gap-2 address">
     <FaMapMarkerAlt className="contact-icon" />
     <span>339/2 at Kurunji Nagar Valayapatti, Trichy Road, Namakkal, Tamil Nadu 637020</span>
   </Col>

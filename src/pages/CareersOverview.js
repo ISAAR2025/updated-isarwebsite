@@ -119,11 +119,9 @@ const CareersOverview = () => (
     <div
       style={{
         width: "100%",
-        height: "340px",
+        height: "270px",
         position: "relative",
         overflow: "hidden",
-        borderBottomLeftRadius: "1.5rem",
-        borderBottomRightRadius: "1.5rem",
         marginBottom: "2rem",
         boxShadow: "0 6px 30px rgba(13,110,253,0.11)",
         background: "linear-gradient(120deg, #0d6efd 60%, #1590e9 100%)",
@@ -165,13 +163,7 @@ const CareersOverview = () => (
           marginBottom: "1rem",
           textShadow: "0 3px 16px rgba(72, 63, 63, 1)",
         }}>Join Our Team</h1>
-        <p style={{
-          fontSize: "1.2rem",
-          maxWidth: "660px",
-          fontWeight: 500,
-          marginTop: "0.3rem",
-          textShadow: "0 2px 12px rgba(6, 21, 41, 0.3)"
-        }}>
+        <p >
           At ISAR, we’re building the future of drones, robotics, and aerospace. Explore exciting opportunities below!
         </p>
       </div>

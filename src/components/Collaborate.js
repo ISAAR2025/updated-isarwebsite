@@ -1,11 +1,11 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import headingImage from '../assets/images/collab.png';
+import headingImage from '../assets/images/collab.webp';
 import "../styles/Collaborations.css";
 
 export default function Collaborations() {
   return (
-    <section className="blue-background-with-particals" id="collaborations">
+    <div className="blue-background-with-particals" id="collaborations">
       <Container>
         
 <Row className="align-items-start g-4">
@@ -17,7 +17,7 @@ export default function Collaborations() {
      <img
        src={headingImage}
         alt="Heading"
-        className="collab-img img-fluid rounded-3 shadow"
+        className="collab-img "
      />
 
     </div>
@@ -44,6 +44,6 @@ export default function Collaborations() {
 </Row>
 
       </Container>
-    </section>
+    </div>
   );
 }

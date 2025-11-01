@@ -1,12 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Container, Row, Col, Card, ListGroup, Button } from "react-bootstrap";
 import { motion } from "framer-motion";
 import Footer from "../components/Footer";
 import "../styles/JobDetails.css";
-
-const googleFormUrl =
-  "https://docs.google.com/forms/d/e/1FAIpQLSdZ9m2w7xG17bbOvHf5r06XHoBk7rfF9KkjRZFGcLd63VEkeQ/viewform?usp=dialog";
 
 const jobs = [
   { id: "uav-engineer", title: "UAV Engineer" },
@@ -22,23 +19,25 @@ const jobs = [
   { id: "internship-aerospace-robotics", title: "Internship – Aerospace & Robotics" },
 ];
 
+// jobDetails object omitted here for brevity; reuse your existing jobDetails data
 const jobDetails = {
   "uav-engineer": {
     title: "UAV Engineer",
     description: (
       <>
-         <h4>Job Details</h4>
+         <h4>Job Details</h4>
         <ul>
           <li><b>Location:</b> Valaiyappatti, Tamil Nadu (Ready to relocate)</li>
-          <li><b>Experience:</b> 0–2 years</li>
+          <li><b>Experience:</b> 0–2 years</li>
           <li><b>Working Hours:</b> 9:30 AM – 6:30 PM</li>
           <li><b>Salary:</b> Negotiable (As per industry standards)</li>
           <li><b>Openings:</b> 2</li>
           <li><b>Department:</b> Research and Development</li>
           <li><b>Accommodation:</b> Provided by Company</li>
           <li><b>Job Type:</b> Full-Time</li>
-          <li><b>Experience:</b> 0–2 years</li>
+          <li><b>Experience:</b> 0–2 years</li>
         </ul>
+
 
         <h4>Key Responsibilities</h4>
         <ul>
@@ -73,10 +72,10 @@ const jobDetails = {
     title: "Avionics Engineer",
     description: (
       <>
-      <h4>Job Details</h4>
+      <h4>Job Details</h4>
         <ul>
           <li><b>Location:</b> Valaiyappatti, Tamil Nadu (Ready to relocate)</li>
-           <li><b>Experience:</b> 0–2 years</li>
+           <li><b>Experience:</b> 0–2 years</li>
           <li><b>Working Hours:</b> 9:30 AM – 6:30 PM</li>
           <li><b>Salary:</b> Negotiable (As per industry standards)</li>
           <li><b>Openings:</b> 2</li>
@@ -113,10 +112,10 @@ const jobDetails = {
     title: "Mechanical Design Engineer",
     description: (
       <>
-       <h4>Job Details</h4>
+       <h4>Job Details</h4>
         <ul>
           <li><b>Location:</b> Valaiyappatti, Tamil Nadu (Ready to relocate)</li>
-           <li><b>Experience:</b> 0–2 years</li>
+           <li><b>Experience:</b> 0–2 years</li>
           <li><b>Working Hours:</b> 9:30 AM – 6:30 PM</li>
           <li><b>Salary:</b> Negotiable (As per industry standards)</li>
           <li><b>Openings:</b> 3</li>
@@ -150,10 +149,10 @@ const jobDetails = {
   title: "Embedded Systems Developer",
   description: (
     <>
-        <h4>Job Details</h4>
+        <h4>Job Details</h4>
       <ul>
         <li><b>Location:</b> Valaiyappatti, Tamil Nadu (Ready to relocate)</li>
-         <li><b>Experience:</b> 0–2 years</li>
+         <li><b>Experience:</b> 0–2 years</li>
         <li><b>Working Hours:</b> 9:30 AM – 6:30 PM</li>
         <li><b>Salary:</b> Negotiable (As per industry standards)</li>
         <li><b>Openings:</b> 2</li>
@@ -191,14 +190,15 @@ const jobDetails = {
   )
 },
 
+
 "software-developer": {
   title: "Software Developer",
   description: (
     <>
-     <h4>Job Details</h4>
+     <h4>Job Details</h4>
       <ul>
         <li><b>Location:</b> Valaiyappatti, Tamil Nadu (Ready to relocate)</li>
-         <li><b>Experience:</b> 0–2 years</li>
+         <li><b>Experience:</b> 0–2 years</li>
         <li><b>Working Hours:</b> 9:30 AM – 6:30 PM</li>
         <li><b>Salary:</b> Negotiable (As per industry standards)</li>
         <li><b>Openings:</b> 2</li>
@@ -235,14 +235,15 @@ const jobDetails = {
   )
 },
 
+
 "cad-engineer": {
   title: "CAD Engineer",
   description: (
     <>
-      <h4>Job Details</h4>
+      <h4>Job Details</h4>
       <ul>
         <li><b>Location:</b> Valaiyappatti, Tamil Nadu (Ready to relocate)</li>
-         <li><b>Experience:</b> 0–2 years</li>
+         <li><b>Experience:</b> 0–2 years</li>
         <li><b>Working Hours:</b> 9:30 AM – 6:30 PM</li>
         <li><b>Salary:</b> Negotiable (As per industry standards)</li>
         <li><b>Openings:</b> 2</li>
@@ -277,14 +278,15 @@ const jobDetails = {
   )
 },
 
+
 "aerodynamics-engineer": {
   title: "Aerodynamics Engineer",
   description: (
     <>
-      <h4>Job Details</h4>
+      <h4>Job Details</h4>
       <ul>
         <li><b>Location:</b> Valaiyappatti, Tamil Nadu (Ready to relocate)</li>
-         <li><b>Experience:</b> 0–2 years</li>
+         <li><b>Experience:</b> 0–2 years</li>
         <li><b>Working Hours:</b> 9:30 AM – 6:30 PM</li>
         <li><b>Salary:</b> Negotiable (As per industry standards)</li>
         <li><b>Openings:</b> 2</li>
@@ -323,10 +325,10 @@ const jobDetails = {
   title: "Manufacturing Engineer",
   description: (
     <>
-      <h4>Job Details</h4>
+      <h4>Job Details</h4>
       <ul>
         <li><b>Location:</b> Valaiyappatti, Tamil Nadu (Ready to relocate)</li>
-        <li><b>Experience:</b> 0–2 years</li>
+        <li><b>Experience:</b> 0–2 years</li>
         <li><b>Working Hours:</b> 9:30 AM – 6:30 PM</li>
         <li><b>Salary:</b> Negotiable (As per industry standards)</li>
         <li><b>Openings:</b> 2</li>
@@ -366,10 +368,10 @@ const jobDetails = {
   title: "Compliance & Certification Engineer",
   description: (
     <>
-      <h4>Job Details</h4>
+      <h4>Job Details</h4>
       <ul>
         <li><strong>Location:</strong> Valaiyappatti, Tamil Nadu</li>
-         <li><b>Experience:</b> 0–2 years</li>
+         <li><b>Experience:</b> 0–2 years</li>
         <li><strong>Working Hours:</strong> 9:30 AM – 6:30 PM</li>
         <li><strong>Salary:</strong> Negotiable (As per industry standards)</li>
         <li><strong>Openings:</strong> 1</li>
@@ -395,6 +397,7 @@ const jobDetails = {
 
 
 
+
       <h4>Key Skills and Experience Required</h4>
       <ul>
         <li>B. Tech/M. Tech in Aerospace, Aeronautical, Mechanical, Electrical Engineering, or a related field.</li>
@@ -413,10 +416,10 @@ const jobDetails = {
   title: "Quality Control (QC) Engineer",
   description: (
     <>
-     <h4>Job Details</h4>
+     <h4>Job Details</h4>
       <ul>
         <li><strong>Location:</strong> Valaiyappatti, Tamil Nadu</li>
-         <li><b>Experience:</b> 0–2 years</li>
+         <li><b>Experience:</b> 0–2 years</li>
         <li><strong>Working Hours:</strong> 9:30 AM – 6:30 PM</li>
         <li><strong>Salary:</strong> Negotiable (As per industry standards)</li>
         <li><strong>Openings:</strong> 2</li>
@@ -464,7 +467,8 @@ const jobDetails = {
       </ul>
 
 
-   <h4>Job Details</h4>
+
+   <h4>Job Details</h4>
       <ul>
         <li><strong>Location:</strong> Valaiyappatti, Tamil Nadu (Ready to relocate)</li>
         <li><strong>Working Hours:</strong> 9:30 AM – 6:30 PM</li>
@@ -474,6 +478,7 @@ const jobDetails = {
         <li><strong>Accommodation:</strong> Provided by Company</li>
         <li><strong>Job Type:</strong> Full-Time</li>
       </ul>
+
 
 
 
@@ -498,19 +503,93 @@ const jobDetails = {
     </>
   )
 },
-};
+}; 
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
 const JobDetails = () => {
   const { jobId } = useParams();
   const navigate = useNavigate();
-  const currIndex = jobs.findIndex(j => j.id === jobId);
+  const currIndex = jobs.findIndex((j) => j.id === jobId);
   const job = jobDetails[jobId];
+
+  const [showForm, setShowForm] = useState(false);
+  const [formData, setFormData] = useState({
+    fullName: "",
+    email: "",
+    phone: "",
+    resume: null,
+    experience: "",
+    dob: "",
+    availability: "",
+    skills: "",
+    queries: "",
+  });
+  const [submitStatus, setSubmitStatus] = useState(null);
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleFileChange = (e) => {
+    setFormData((prev) => ({ ...prev, resume: e.target.files[0] }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const data = new FormData();
+    data.append("jobId", jobId);
+    data.append("fullName", formData.fullName);
+    data.append("email", formData.email);
+    data.append("phone", formData.phone);
+    if (formData.resume) {
+      data.append("resume", formData.resume);
+    }
+    data.append("experience", formData.experience);
+    data.append("dob", formData.dob);
+    data.append("availability", formData.availability);
+    data.append("skills", formData.skills);
+    data.append("queries", formData.queries);
+
+    try {
+  const response = await fetch(`${API_BASE_URL}/apply`, {
+    method: "POST",
+    body: data, // if sending FormData (for file uploads), do NOT set Content-Type manually
+    // headers: { 'Content-Type': 'multipart/form-data' } // DO NOT set manually for FormData
+  });
+
+  if (!response.ok) {
+    // Try parsing error message from backend JSON if available
+    const errorData = await response.json().catch(() => null);
+    const errorMsg = errorData?.message || "Failed to submit application. Please try again.";
+    setSubmitStatus(errorMsg);
+  } else {
+    // Success path
+    const resData = await response.json();
+    setSubmitStatus(resData.message || "Application submitted successfully.");
+    setFormData({
+      fullName: "",
+      email: "",
+      phone: "",
+      resume: null,
+      experience: "",
+      dob: "",
+      availability: "",
+      skills: "",
+      queries: "",
+    });
+    setShowForm(false);
+  }
+} catch (error) {
+  setSubmitStatus("Error submitting application.");
+}
+  }
 
   return (
     <div className="jobdetails-bg">
       <Container>
         <Row className="jobdetails-row">
-          {/* Sidebar (sticky on desktop) */}
           <Col md={3} xs={12} className="jobdetails-sidebar">
             <ListGroup variant="flush" className="jobdetails-list">
               {jobs.map((jobItem, idx) => (
@@ -527,20 +606,181 @@ const JobDetails = () => {
               ))}
             </ListGroup>
           </Col>
-          {/* Job details (right side) */}
           <Col md={9} xs={12} className="jobdetails-content">
             {job ? (
               <Card className="jobdetails-card">
                 <Card.Body>
-                  <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
+                  >
                     <h2 className="fw-bold jobdetails-title">{job.title}</h2>
                     <hr className="jobdetails-hr" />
                     <div className="jobdetails-desc">{job.description}</div>
-                    <div className="d-flex justify-content-center mt-4">
-                      <Button className="apply-button" variant="primary" size="lg" onClick={() => window.open(googleFormUrl, "_blank")}>
-                        Apply for this Position
-                      </Button>
-                    </div>
+
+                    {!showForm ? (
+                      <div className="d-flex justify-content-center mt-4">
+                        <Button
+                          className="apply-button"
+                          variant="primary"
+                          size="lg"
+                          onClick={() => setShowForm(true)}
+                        >
+                          Apply for this Position
+                        </Button>
+                      </div>
+                    ) : (
+                      <form onSubmit={handleSubmit} className="mt-4">
+                        <div className="mb-3">
+                          <label htmlFor="fullName" className="form-label">
+                            Full Name
+                          </label>
+                          <input
+                            type="text"
+                            className="form-control"
+                            id="fullName"
+                            name="fullName"
+                            value={formData.fullName}
+                            onChange={handleInputChange}
+                            required
+                          />
+                        </div>
+                        <div className="mb-3">
+                          <label htmlFor="email" className="form-label">
+                            Email
+                          </label>
+                          <input
+                            type="email"
+                            className="form-control"
+                            id="email"
+                            name="email"
+                            value={formData.email}
+                            onChange={handleInputChange}
+                            required
+                          />
+                        </div>
+                        <div className="mb-3">
+                          <label htmlFor="phone" className="form-label">
+                            Phone Number
+                          </label>
+                          <input
+                            type="tel"
+                            className="form-control"
+                            id="phone"
+                            name="phone"
+                            value={formData.phone}
+                            onChange={handleInputChange}
+                            required
+                          />
+                        </div>
+                        <div className="mb-3">
+                          <label htmlFor="resume" className="form-label">
+                            Upload Resume (PDF or DOC)
+                          </label>
+                          <input
+                            type="file"
+                            className="form-control"
+                            id="resume"
+                            name="resume"
+                            accept=".pdf,.doc,.docx"
+                            onChange={handleFileChange}
+                            required
+                          />
+                          <label htmlFor="position" className="form-label">
+                            Applying for the Position
+                          </label>
+                          <input
+                            type="text"
+                            className="form-control"
+                            id="position"
+                            name="position"
+                            value={job?.title || ""}
+                            readOnly
+                          />
+                        </div>
+                        <div className="mb-3">
+                          <label htmlFor="experience" className="form-label">
+                            Years of Experience (if any)
+                          </label>
+                          <input
+                            type="number"
+                            className="form-control"
+                            id="experience"
+                            name="experience"
+                            min="0"
+                            value={formData.experience || ""}
+                            onChange={handleInputChange}
+                          />
+                        </div>
+                        <div className="mb-3">
+                          <label htmlFor="dob" className="form-label">
+                            Date of Birth
+                          </label>
+                          <input
+                            type="date"
+                            className="form-control"
+                            id="dob"
+                            name="dob"
+                            value={formData.dob || ""}
+                            onChange={handleInputChange}
+                          />
+                        </div>
+                        <div className="mb-3">
+                          <label htmlFor="availability" className="form-label">
+                            Availability to Join
+                          </label>
+                          <input
+                            type="date"
+                            className="form-control"
+                            id="availability"
+                            name="availability"
+                            value={formData.availability || ""}
+                            onChange={handleInputChange}
+                          />
+                        </div>
+                        <div className="mb-3">
+                          <label htmlFor="skills" className="form-label">
+                            Skills
+                          </label>
+                          <textarea
+                            className="form-control"
+                            id="skills"
+                            name="skills"
+                            rows="3"
+                            value={formData.skills || ""}
+                            onChange={handleInputChange}
+                          />
+                        </div>
+                        <div className="mb-3">
+                          <label htmlFor="queries" className="form-label">
+                            Any Queries
+                          </label>
+                          <textarea
+                            className="form-control"
+                            id="queries"
+                            name="queries"
+                            rows="3"
+                            value={formData.queries || ""}
+                            onChange={handleInputChange}
+                          />
+                        </div>
+                        <div className="d-flex justify-content-between">
+                          <Button variant="secondary" onClick={() => setShowForm(false)}>
+                            Cancel
+                          </Button>
+                          <Button type="submit" variant="success">
+                            Submit Application
+                          </Button>
+                        </div>
+                      </form>
+                    )}
+
+                    {submitStatus && (
+                      <p className="mt-3 text-center">
+                        <small>{submitStatus}</small>
+                      </p>
+                    )}
                   </motion.div>
                 </Card.Body>
               </Card>
@@ -554,7 +794,7 @@ const JobDetails = () => {
           </Col>
         </Row>
       </Container>
-      <Footer/>
+      <Footer />
     </div>
   );
 };

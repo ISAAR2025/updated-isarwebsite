@@ -1,36 +1,88 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Button } from "react-bootstrap";
 import "../styles/hero.css";
-import bgImage from "../assets/images/IMG_0033.webp"; 
- 
 
+// Import multiple images (use your actual image paths)
+import bgImage1 from "../assets/images/IMG_0033.webp";
+import bgImage2 from "../assets/images/3d3.webp";
+import bgImage3 from "../assets/images/bgimage3.jpeg";
+import bgImage4 from "../assets/images/bgimage4.jpeg";
+import bgImage5 from "../assets/images/imagebg5.png";
 
 function HomePage() {
-  return (
-    <section className="modern-hero" style={{ backgroundImage: `url(${bgImage})` }}>
-      
-      <div className="hero-bg-overlay" />
-      <div className="hero-content-wrapper">
-        <h1 className="hero-headline">
-          Shaping the Future of Technology
-        </h1>
-        <p className="hero-tagline">
-          Training Talent & Delivering Innovation
-        </p>
-        <div className="hero-actions">
-          <Button href="/Institute"   variant="primary" className="rounded-pill cta">
-            
-                  Explore Our Institute
-            
-          </Button>
+  // Slides array: each slide has image, title, and text
+  const slides = [
+    {
+      title: "Empowering Innovation Through Education & Technology",
+      text: "Learn. Create. Build the future with ISAAR — your destination for skill-based learning, 3D printing expertise, and industry-ready training.",
+      image: bgImage1,
+    },
+    {
+      title: "Where Learning Meets 3D Innovation",
+      text: "From cutting-edge courses to high-precision 3D printing solutions — ISAAR bridges creativity and technology for the next generation of innovators.",
+      image: bgImage2,
+    },
+    {
+      title: "Shaping Future Engineers & Innovators",
+      text: "Join ISAAR to gain hands-on experience with advanced tools, real-world projects, and professional mentorship in 3D printing and emerging technologies.",
+      image: bgImage3,
+    },
+    {
+      title: "Your Trusted Partner in 3D Printing & Design",
+      text: "Bring your ideas to life with our state-of-the-art 3D printing, design, and prototyping services — built for students, startups, and industry professionals.",
+      image: bgImage4,
+    },
+    {
+      title: "Learn. Design. Print. Innovate.",
+      text: "ISAAR helps you master new-age skills and turn your concepts into reality through expert-led training and advanced 3D printing technology.",
+      image: bgImage5,
+    },
+  ];
 
-          <Button   href="/Services" variant="outline-light" className="rounded-pill cta">
+  // State for current slide index
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  // Auto change slide every 4 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % slides.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [slides.length]);
+
+  const currentSlide = slides[currentIndex];
+
+  return (
+    <section
+      className="modern-hero"
+      style={{
+        backgroundImage: `url(${currentSlide.image})`,
+        transition: "background-image 1s ease-in-out",
+      }}
+    >
+      <div className="hero-bg-overlay" />
+
+      <div className="hero-content-wrapper">
+        <h1 className="hero-headline">{currentSlide.title}</h1>
+        <p className="hero-tagline">{currentSlide.text}</p>
+
+        <div className="hero-actions">
+          <Button href="/Institute" variant="primary" className="rounded-pill cta">
+            Explore Our Institute
+          </Button>
+          <Button href="/Services" variant="outline-light" className="rounded-pill cta">
             View Our Services
           </Button>
-          
         </div>
+
+        {/* Optional visual indicator (small dots for slide position) */}
         <div className="visual-indicator">
-          
+          {slides.map((_, i) => (
+            <span
+              key={i}
+              className={`dot ${i === currentIndex ? "active" : ""}`}
+            ></span>
+          ))}
         </div>
       </div>
     </section>

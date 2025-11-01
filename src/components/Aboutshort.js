@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import "../styles/AboutShort.css";
-import aboutImg from "../assets/images/about-section1.png";
+import about from "../assets/images/aboutus-section-home.webp";
 
 function RevealOnScroll({ children, className = "fade-up", rootMargin = "0px 0px -10% 0px", once = true, style }) {
   const ref = useRef(null);
@@ -34,16 +34,16 @@ function RevealOnScroll({ children, className = "fade-up", rootMargin = "0px 0px
 
 export default function AboutShort() {
   return (
-    <section className="about-short section-pastel" id="about">
+    <div className="about-short section-pastel" id="about">
       <Container>
         <Row className="align-items-center flex-row-reverse">
           {/* RIGHT IMAGE */}
-          <Col lg={6} className="d-flex justify-content-center align-items-center mb-4 mb-lg-0">
-            <img src={aboutImg} alt="ISAR Labs and Training"  />
+          <Col lg={6} className="d-flex justify-content-center align-items-center mb-4 mb-lg-0 ">
+            <img src={about} alt="ISAR Labs and Training"  />
           </Col>
           {/* LEFT TEXT */}
           <Col lg={6} className="about-text-col">
-            <div className="sub-title-round mb-3">About Us</div>
+            <div className="sub-title-round">About Us</div>
             <h3 className="about-title mb-3 text-black">
               ISAR advances innovation through hands‑on learning, research, and services in Drone Technology and 3D Printing—empowering careers
             </h3>
@@ -63,6 +63,6 @@ export default function AboutShort() {
           </Col>
         </Row>
       </Container>
-    </section>
+    </div>
   );
 }

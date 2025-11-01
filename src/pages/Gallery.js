@@ -170,6 +170,19 @@ export default function GalleryMedia() {
   }
 
   return (
+
+ <main>
+ <section className="gallery-hero-section  breadcrumb-bg ">
+              <Container>
+                <div className="service-hero-content text-center">
+                  <h1 className="contact-title">Gallery</h1>
+                  <p>Explore our curated collection showcasing innovation, creativity, and cutting-edge technology</p>
+                
+               
+                </div>
+              </Container>
+            </section>
+    
     <section className="gallery-media section-pastel" id="gallery">
       <Container>
         {/* Header & Tabs remain unchanged */}
@@ -177,10 +190,10 @@ export default function GalleryMedia() {
         <Row className="mb-5 justify-content-center">
           {gallerySections.map((section) => (
             <Col key={section.title} xs="auto" className="mb-2">
-              <button
-                className={`btn ${activeTab === section.title ? "btn-primary" : "btn-outline-primary"}`}
-                onClick={() => setActiveTab(section.title)}
-              >
+<button
+  className={`tab-btn ${activeTab === section.title ? 'active' : ''}`}
+  onClick={() => setActiveTab(section.title)}
+>
                 {section.title}
               </button>
             </Col>
@@ -318,5 +331,6 @@ export default function GalleryMedia() {
         <Footer/>
       </div>
     </section>
+    </main>
   );
 }

@@ -31,7 +31,7 @@ function ServiceCard({ img, title, bullets }) {
 
 export default function PrintingIndustrialSection() {
   return (
-    <section className="printing-industrial section-pastel" id="printing-industrial">
+    <div className="printing-industrial section-pastel" id="printing-industrial">
       <Container>
         
          <div className="text-center align-items-center flex-wrap flex-direction-column">
@@ -82,11 +82,11 @@ export default function PrintingIndustrialSection() {
         </Row>
 
         <div className="mt-4 d-flex gap-2 flex-wrap justify-content-center">
-          <a href="/services#quote" className="btn btn-primary btn-lg">Request a Quote</a>
-          <a href="/docs/3dp-specs.pdf" className="btn btn-outline-secondary btn-lg">Download Spec Sheet</a>
+          <a href="#contact" className="btn btn-primary btn-lg">Request a Quote</a>
+          
         </div>
       </Container>
-    </section>
+    </div>
   );
 }
 
