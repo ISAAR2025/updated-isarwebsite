@@ -16,7 +16,7 @@ const SERVICES = [
   },
   {
     key: "survey",
-    title: "Aerial Surveys & Research",
+    title: "Aerial Surveys and Drone Research",
     text: "GIS, photogrammetry, inspection, data analytics.",
     icon: iconSurvey,
   },

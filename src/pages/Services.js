@@ -41,17 +41,7 @@ import imgPVA from "../assets/images/Pva.webp";
 
 import whyservice from "../assets/images/service why section.webp"
 
-const Step = ({ icon, title, text, delay = 0 }) => (
-  <div className="col-6 col-md-4 col-lg-2 d-flex align-items-stretch">
-    <div className="step-card text-center w-100" data-aos="fade-up" data-aos-delay={delay}>
-      <div className="step-icon-wrap ratio ratio-1x1">
-        <img src={icon} alt={title} className="step-icon" />
-      </div>
-      <h6 className="mt-3 mb-1">{title}</h6>
-      <p className="small text-muted mb-0">{text}</p>
-    </div>
-  </div>
-);
+
 
 const PrinterCard = ({ img, name, desc, type, delay = 0 }) => (
   <div className="five-col" data-aos="fade-up" data-aos-delay={delay}>
@@ -143,8 +133,8 @@ export default function Services3DPrint() {
   <div className="container">
     <div className="row justify-content-center mb-4" data-aos="fade-right">
       <div className="col-xl-10">
-        <h2 className="h4 mb-2">Steps for 3D Printing Services</h2>
-        <p className=" mb-0 text-white">
+        <h2 className="h4 mb-2 text-center">Steps for 3D Printing Services</h2>
+        <p className=" mb-0 text-white text-center">
           Simple, transparent, and reliable — your idea goes from file to finished product in just six easy steps.
         </p>
       </div>
@@ -196,19 +186,7 @@ export default function Services3DPrint() {
         <h6 className="mt-3 mb-1 text-center ">{step.title}</h6>
         <p className="small  mb-0 text-center text-white">{step.text}</p>
       </div>
-      {/* Arrow right between 1-2, 2-3, 4-5, 5-6;
-          Down arrow at end of first row (after 3) and at end of fourth step (after 6), not needed */}
-      {(i % 3 !== 2 && i !== arr.length - 1) && (
-        <div className="step-arrow-wrap">
-          <span className="step-arrow" aria-hidden="true">→</span>
-        </div>
-      )}
-      {/* After card 3, show a down arrow to next row */}
-      {(i === 2 || i === 5) && i !== arr.length - 1 && (
-        <div className="step-arrow-wrap vertical-arrow">
-          <span className="step-arrow" aria-hidden="true">↓</span>
-        </div>
-      )}
+      
     </React.Fragment>
       ))}
     </div>
@@ -222,7 +200,7 @@ export default function Services3DPrint() {
           <div className="containers">
           <div className="row align-items-center gy-4">
             <div className="col-lg-6" data-aos="fade-right">
-              <h2 className="h4 mb-2">Our 3D Printing Technology</h2>
+              <h2 className="h3 mb-2">Our 3D Printing Technology</h2>
               <p className="mb-3">
                 We use industry‑leading printers to deliver high‑quality, reliable results for everything from rapid prototypes to final products. A mix of FDM and resin printers allows us to handle large‑scale prototypes and ultra‑detailed miniatures alike.
               </p>
@@ -264,8 +242,8 @@ export default function Services3DPrint() {
         <div className="container">
           <div className="row justify-content-center" data-aos="fade-right">
             <div className="col-xl-10">
-              <h2 className="h4 mb-2">Materials We Use</h2>
-              <p className="text-muted mb-3">
+              <h1 className="h3 mb-2 text-center text-white">Materials We Use</h1>
+              <p className=" mb-3 text-center text-white">
                 Better quality, more material options, and reliable results tailored to your needs.
               </p>
             </div>
@@ -291,19 +269,21 @@ export default function Services3DPrint() {
        <Row className="align-items-center flex-row-reverse">
        {/* RIGHT IMAGE */}
           <Col lg={6} className="d-flex justify-content-center align-items-center mb-4 mb-lg-0">
-            <img src={whyservice} alt="why choose 3dpritring"  />
+            <img src={whyservice} alt="why choose 3dpritring" className="section-image" />
           </Col>
           {/* LEFT TEXT */}
           <Col lg={6} className="about-text-col">
             
             <h2 className="h4 mb-3">Why Choose ISAR 3D Print?</h2>
-            <ul className="list-unstyled mb-0 why-list">
-              <li>Fast Turnaround — from idea to prototype in days.</li>
-              <li>High Precision — every detail captured with accuracy.</li>
-              <li>Custom Solutions — tailored to unique industry needs.</li>
-              <li>Affordable Prototyping — reduce cost, improve efficiency.</li>
-              <li>All Industries Covered — from aerospace to art.</li>
-            </ul>
+            <p>ISAR 3D Print offers several compelling advantages that make it a preferred choice for
+               prototyping and manufacturing. It ensures a fast turnaround, taking you from idea to prototype 
+               in just a few days. The technology delivers high precision, capturing every detail with accuracy. 
+               ISAR provides custom solutions tailored to the unique needs of different industries, ensuring that 
+               each project meets specific requirements. Cost efficiency is another key benefit, offering affordable 
+               prototyping options that help reduce costs while improving efficiency. Moreover, 
+               ISAR 3D Print caters to a broad range of industries, from aerospace to art, making its services versatile and 
+               inclusive for various applications. This combination of speed, precision, customization, affordability, and wide 
+               industry applicability sets ISAR apart in the 3D printing space.</p>
             <div className="mt-4">
               <a href="/contact" className="btn btn-primary btn-lg">Request a Quote</a>
             </div>

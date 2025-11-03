@@ -34,14 +34,14 @@ export default function HeroStats() {
   return (
     <section className="hero-stats-section">
       <div className="stats-overlay"></div>
-      <Container className="hero-content">
+      <Container className="hero-stats-content">
         <Row className="justify-content-start">
           <Col lg={8} md={10}>
             <div className="hero-text-wrapper">
               <div className="accent-line"></div>
               <h1 className="hero-title">
                 Advancing Technology Through
-Aerospace, Robotics
+                Aerospace, Robotics
                 <br />
                 & 3D Printing
               </h1>

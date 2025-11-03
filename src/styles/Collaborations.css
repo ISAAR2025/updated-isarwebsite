@@ -15,6 +15,13 @@
   border: 1px solid rgba(0,0,0,0.05);
   border-radius: 12px;
 }
+.collab-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
 
 .blue-background-with-particals{
   background-color: #001641;
@@ -28,10 +35,10 @@
 .sub-title-round {
     
     color: #1e59ef;
-    padding: 21px 35px;
+    padding-left: 5px;
     border-radius: 30px;
     display: inline-block;
-    margin-bottom: 20px;
+    margin-bottom: -10px;
     font-size: 2.1rem;
 }
 
@@ -65,19 +72,18 @@ ul.feature-list{color: #fff !important;}
 }
 }
 .collab-img {
-  width: 100%;
-  max-width: 520px;   /* increase this value for a larger image */
-  height: auto;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
 }
 
 /* On large screens, allow even larger images if desired */
 @media (max-width: 767.98px) {
   .sub-title-round {
     background: transparent !important;
-    color: #1E376A !important; /* Make text dark blue for visibility */
+    color: #2e34d1 !important; /* Make text dark blue for visibility */
     border: none !important;
     padding-top: 8px !important;
     padding-bottom: 8px !important;

@@ -23,8 +23,8 @@ const CourseCard = ({ img, title, bullets = [], applyHref = "#",  delay = 0 }) =
             <li key={i} className="mb-1">• {line}</li>
           ))}
         </ul>
-        <div className="mt-auto d-flex gap-2 flex-wrap">
-          <a href={applyHref} className="btn btn-primary btn-sm">Apply Now</a>
+        <div className="mt-auto d-flex gap-2 flex-wrap justify-content-center">
+          <a href={applyHref} className="btn btn-apply btn-sm">Apply Now</a>
           
         </div>
       </div>

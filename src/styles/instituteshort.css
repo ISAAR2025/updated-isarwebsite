@@ -101,3 +101,8 @@
 .view-details-btn:hover {
   background-color: #1e40af;
 }
+.btn-apply{
+  background-color: #2563eb;
+  
+  color: #eaf5ff;
+}

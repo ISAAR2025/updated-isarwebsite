@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import headingImage from '../assets/images/collab.webp';
+import headingImage from '../assets/images/collab.jpeg';
 import "../styles/Collaborations.css";
 
 export default function Collaborations() {
@@ -13,12 +13,11 @@ export default function Collaborations() {
     <Row className="g-3">
 
        <Col lg={5} md={5} xs={12}>
-         <div className="h-100 mb-0">
-     <img
-       src={headingImage}
-        alt="Heading"
-        className="collab-img "
-     />
+         <div className="h-100 mb-0" style={{ marginTop: '50px' }}>
+          <div className="ratio ratio-4x3 rounded-3 overflow-hidden shadow-sm">
+                <img src={headingImage} alt="Heading" className="collab-img " />
+           </div>
+
 
     </div>
       </Col>

@@ -187,14 +187,11 @@
 
 /* ===== ENROLL FORM ===== */
 .enroll-form-container {
-  background: #fff;
-  border-radius: 16px;
-
-  position: relative;
-  max-width: 600px;
-  margin: 40px auto 0;
-  text-align: left;
-}
+    background: #fff;
+    border-radius: 16px;
+    position: relative;
+    margin: 40px auto 0;
+    text-align: left;}
 .close-form-btn {
   position: absolute;
   top: 12px;
@@ -251,6 +248,90 @@
   transform: translateY(-2px);
 }
 
+/* ===== COURSE GRID SECTION ===== */
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 28px;
+  padding: 60px max(6vw, 32px);
+  justify-content: center;
+}
+
+/* ===== COURSE CARD ===== */
+.course-card {
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+}
+
+.course-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+/* ===== IMAGE ===== */
+.course-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* ===== CONTENT ===== */
+.course-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 18px;
+}
+
+/* Lessons + Students Row */
+.course-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.course-meta span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Title Alignment */
+.course-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #062c4f;
+  min-height: 48px; /* ensures consistent alignment */
+  line-height: 1.4;
+  margin-bottom: 14px;
+}
+
+/* View Details Button */
+.view-btn {
+  background: linear-gradient(135deg, #266ab1, #1b4f88);
+  color: #fff;
+  border: none;
+  padding: 10px 0;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: background 0.3s ease, transform 0.2s;
+  cursor: pointer;
+}
+
+.view-btn:hover {
+  background: linear-gradient(135deg, #1d5a92, #16497b);
+  transform: translateY(-2px);
+}
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 992px) {
   .course-layout {
@@ -266,6 +347,16 @@
   .course-main {
     order: 1;
     padding: 32px 28px;
+  }
+}
+
+@media (max-width: 768px) {
+  .courses-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+  .course-card img {
+    height: 180px;
   }
 }
 
