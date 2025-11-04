@@ -3,7 +3,7 @@ import { Button } from "react-bootstrap";
 import "../styles/hero.css";
 
 // Import multiple images (use your actual image paths)
-import bgImage1 from "../assets/images/IMG_0033.webp";
+import bgImage1 from "../assets/images/institute1.jpg";
 import bgImage2 from "../assets/images/3d3.webp";
 import bgImage3 from "../assets/images/bgimage3.jpeg";
 import bgImage4 from "../assets/images/bgimage4.jpeg";
